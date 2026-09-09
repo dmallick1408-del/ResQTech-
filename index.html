@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResQTech | Urban Flood Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>🌊</span> ResQTech
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#prediction">Prediction</a>
+            <a href="#map">Risk Map</a>
+            <a href="#emergency">Emergency</a>
+            <a href="#analytics">Analytics</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">AI-POWERED DISASTER MANAGEMENT</p>
+
+            <h1>
+                Urban Flood
+                <span>Nowcasting</span>
+                & Emergency Intelligence
+            </h1>
+
+            <p class="hero-text">
+                ResQTech combines rainfall, drainage, terrain,
+                water-level and historical flood information to
+                estimate localized urban flood risk.
+            </p>
+
+            <div class="hero-buttons">
+                <button onclick="scrollToSection('prediction')">
+                    Check Flood Risk
+                </button>
+
+                <button class="secondary"
+                        onclick="scrollToSection('map')">
+                    View Risk Map
+                </button>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="status-header">
+                <span>Current System Status</span>
+                <span class="online">● Online</span>
+            </div>
+
+            <div class="risk-circle">
+                <strong>HIGH</strong>
+                <small>Demo Risk</small>
+            </div>
+
+            <p>
+                Monitoring urban flood conditions
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section">
+
+        <div class="section-title">
+            <p class="tag">LIVE OVERVIEW</p>
+            <h2>Flood Risk Dashboard</h2>
+            <p>
+                Key environmental and infrastructure indicators.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🌧️</div>
+                <h3>Rainfall</h3>
+                <p class="value">85 mm</p>
+                <span>Demo data</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Water Level</h3>
+                <p class="value">Elevated</p>
+                <span>Demo data</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚰</div>
+                <h3>Drainage</h3>
+                <p class="value">Poor</p>
+                <span>Demo data</span>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Flood Probability</h3>
+                <p class="value">78%</p>
+                <span>Demo prediction</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Prediction -->
+    <section id="prediction" class="section dark-section">
+
+        <div class="section-title">
+            <p class="tag">AI / ML</p>
+            <h2>Flood Risk Prediction</h2>
+
+            <p>
+                Enter environmental conditions to generate
+                a flood-risk prediction.
+            </p>
+        </div>
+
+
+        <div class="prediction-container">
+
+            <div class="input-panel">
+
+                <label>Rainfall Amount (mm)</label>
+                <input type="number"
+                       id="rainfall"
+                       placeholder="Example: 85">
+
+                <label>Rainfall Intensity</label>
+                <select id="intensity">
+                    <option value="">Select intensity</option>
+                    <option>Low</option>
+                    <option>Moderate</option>
+                    <option>High</option>
+                </select>
+
+                <label>Rainfall Duration (hours)</label>
+                <input type="number"
+                       id="duration"
+                       placeholder="Example: 3">
+
+                <label>Drainage Condition</label>
+                <select id="drainage">
+                    <option value="">Select condition</option>
+                    <option>Good</option>
+                    <option>Moderate</option>
+                    <option>Poor</option>
+                </select>
+
+                <label>Water Level</label>
+                <select id="waterLevel">
+                    <option value="">Select water level</option>
+                    <option>Normal</option>
+                    <option>Elevated</option>
+                    <option>High</option>
+                </select>
+
+                <button onclick="predictRisk()">
+                    Predict Flood Risk
+                </button>
+
+            </div>
+
+
+            <div class="result-panel">
+
+                <p class="result-label">
+                    PREDICTION RESULT
+                </p>
+
+                <div id="predictionResult">
+                    <div class="result-icon">🤖</div>
+
+                    <h3>Waiting for input</h3>
+
+                    <p>
+                        Enter the conditions and click
+                        "Predict Flood Risk".
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Risk Map -->
+    <section id="map" class="section">
+
+        <div class="section-title">
+            <p class="tag">GOOGLE MAPS API</p>
+
+            <h2>Urban Flood Risk Map</h2>
+
+            <p>
+                Location-based visualization of predicted
+                flood-risk zones.
+            </p>
+        </div>
+
+        <div class="map-placeholder">
+
+            <div class="map-content">
+
+                <div class="map-pin pin-red">🔴</div>
+                <div class="map-pin pin-orange">🟠</div>
+                <div class="map-pin pin-yellow">🟡</div>
+                <div class="map-pin pin-green">🟢</div>
+
+                <h3>Google Maps Integration</h3>
+
+                <p>
+                    Interactive risk visualization will be
+                    connected using Google Maps API.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="legend">
+
+            <span>🟢 Low</span>
+            <span>🟡 Moderate</span>
+            <span>🟠 High</span>
+            <span>🔴 Severe</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- Emergency Intelligence -->
+    <section id="emergency" class="section emergency-section">
+
+        <div class="section-title">
+
+            <p class="tag">DECISION SUPPORT</p>
+
+            <h2>Emergency Intelligence</h2>
+
+            <p>
+                Recommended priorities based on predicted
+                risk conditions.
+            </p>
+
+        </div>
+
+
+        <div class="emergency-grid">
+
+            <div class="emergency-card severe">
+                <h3>🔴 Priority Zone 1</h3>
+                <p>Severe flood risk</p>
+                <strong>Immediate monitoring</strong>
+            </div>
+
+            <div class="emergency-card high">
+                <h3>🟠 Priority Zone 2</h3>
+                <p>High flood risk</p>
+                <strong>Response preparation</strong>
+            </div>
+
+            <div class="emergency-card moderate">
+                <h3>🟡 Priority Zone 3</h3>
+                <p>Moderate flood risk</p>
+                <strong>Continue monitoring</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Analytics -->
+    <section id="analytics" class="section">
+
+        <div class="section-title">
+
+            <p class="tag">ANALYTICS</p>
+
+            <h2>Flood Intelligence</h2>
+
+            <p>
+                Historical and predicted flood-risk insights.
+            </p>
+
+        </div>
+
+
+        <div class="analytics-grid">
+
+            <div class="analytics-box">
+                <h3>🌧️ Rainfall Trend</h3>
+                <div class="chart-placeholder">
+                    Chart will be connected to dataset
+                </div>
+            </div>
+
+            <div class="analytics-box">
+                <h3>🔴 Risk Distribution</h3>
+                <div class="chart-placeholder">
+                    Chart will be connected to ML data
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h2>🌊 ResQTech</h2>
+
+        <p>
+            AI-Powered Urban Flood Nowcasting &
+            Emergency Intelligence
+        </p>
+
+        <p class="footer-small">
+            SIH 2026 | Problem Statement SIH26085
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
